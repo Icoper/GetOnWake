@@ -1,5 +1,6 @@
 package com.wbapps.samik.getonwake;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     // start work
                     notificationWorker.showNotification();
-                    serviceCustom.startService();
+                    serviceCustom.onHandleIntent(new Intent(MainActivity.this, IntentServiceCustom.class));
                     checkBoxInfoTextView.setTypeface(Typeface.DEFAULT);
                     serviceRun = true;
                 }

@@ -2,13 +2,14 @@ package com.wbapps.samik.getonwake;
 
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-
+import android.os.IBinder;
+import android.support.annotation.Nullable;
 
 public class NotificationWorker {
-    private static final int ID = 1;
+
     private static final int NOTIFY_ID = 79;
     private Context context;
 
@@ -27,7 +28,7 @@ public class NotificationWorker {
 
 
         Notification n = builder.build();
-        n.flags = n.flags | Notification.FLAG_ONGOING_EVENT;
+        n.flags = n.flags | Notification.FLAG_NO_CLEAR;
         nm.notify(NOTIFY_ID, n);
     }
 
