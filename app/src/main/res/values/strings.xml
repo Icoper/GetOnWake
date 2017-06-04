@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Take to unlock</string>
+    <string name="app_status_on">Service is active</string>
+    <string name="app_status_off">Service is not active</string>
+    <string name="qunlock_cb">Quick Unlock</string>
+    <string name="qunlock_info">When this feature is enabled, your device will be automatically unlocked.Attention, this function can not work on all devices, and also in cases when you use a password, etc.</string>
+    <string name="about_app">Contact the developer : gotoyougoal@gmail.com</string>
+    <string name="about_sensitivity">This parameter adjusts the sensitivity of your device to wake-ups. The recommended value is 8. It is not recommended to change this parameter. Spontaneous awakening of the device is possible.</string>
+    <string name="need_restart">Что бы изменения вступили в силу, необходимо перезапустить преложение.</string>
+
+</resources>

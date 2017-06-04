@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Take to unlock</string>
+    <string name="app_status_on">Сервис активен</string>
+    <string name="app_status_off">Сервис не активен</string>
+    <string name="qunlock_cb">Быстрая разблокировка</string>
+    <string name="qunlock_info">При включении данной фунции ваше устройство автоматически разблокируется. Внимание, данная функция может работать не на всех устройствах, а так же в случаях если вы ипользуете пароль и т.д.  </string>
+    <string name="about_app">Связаться с разработчиком : gotoyougoal@gmail.com</string>
+
+    <string name="about_sensitivity">Данный параметр регулирует чувсвительность вашего устройства к пробуждениям. Рекомендуемое значение - 8. Не рекомендуется менять этот параметр т.к. возможны спонтанные пробуждения устройства.</string>
+    <string name="need_restart">Что бы изменения вступили в силу, необходимо перезапустить преложение.</string>
+</resources>
