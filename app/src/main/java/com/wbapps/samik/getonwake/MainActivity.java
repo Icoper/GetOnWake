@@ -19,6 +19,7 @@ import com.wbapps.samik.getonwake.engine.ArrayDataListener;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int DEFAULT_SENSITIVITY = 8;
 
     private ImageButton onOffAppBtn;
     private CheckBox quickUnlockCheckBox;
@@ -136,9 +137,26 @@ public class MainActivity extends AppCompatActivity {
             onOffAppBtn.setBackgroundResource(R.mipmap.off_service_img);
         }
 
-        sensitivityVolumeTextView.setText(String.valueOf(sensitivityApp));
+        if (sensitivityApp != 0) {
+            sensitivityVolumeTextView.setText(String.valueOf(sensitivityApp));
+        } else {
+            initFirstLaunch();
+        }
     }
 
+    private void initFirstLaunch() {
+        // if app launched first
+        sensitivitySetterSeekBar.setProgress(DEFAULT_SENSITIVITY);
+        sensitivityVolumeTextView.setText(String.valueOf(DEFAULT_SENSITIVITY));
+        dataWorker.updateSensitivity(DEFAULT_SENSITIVITY);
+        sensitivityApp = DEFAULT_SENSITIVITY;
+
+        // restart app
+        Intent i = getBaseContext().getPackageManager()
+                .getLaunchIntentForPackage(getBaseContext().getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+    }
 
 
     /**

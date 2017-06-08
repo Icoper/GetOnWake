@@ -2,11 +2,7 @@ package com.wbapps.samik.getonwake;
 
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
 
 public class NotificationWorker {
 
