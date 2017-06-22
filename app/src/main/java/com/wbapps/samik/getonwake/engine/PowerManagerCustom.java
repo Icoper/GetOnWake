@@ -1,9 +1,10 @@
-package com.wbapps.samik.getonwake;
+package com.wbapps.samik.getonwake.engine;
 
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.os.PowerManager;
 
+import com.wbapps.samik.getonwake.data.SharedPreferencesWorker;
 import com.wbapps.samik.getonwake.engine.SensorManagerWorker;
 
 import java.util.HashMap;
@@ -11,6 +12,12 @@ import java.util.HashMap;
 public class PowerManagerCustom {
     private boolean qUnlock;
     private Context appContext;
+    private SharedPreferencesWorker sharedPreferencesWorker;
+
+    {
+        sharedPreferencesWorker = new SharedPreferencesWorker(appContext);
+        qUnlock = sharedPreferencesWorker.getQunlockState();
+    }
 
     public PowerManagerCustom(Context appContext) {
         this.appContext = appContext;
@@ -30,12 +37,15 @@ public class PowerManagerCustom {
     private void screenOn() {
         PowerManager pm = (PowerManager) appContext.getSystemService(Context.POWER_SERVICE);
 
-        PowerManager.WakeLock wakeLock = pm.newWakeLock((PowerManager.SCREEN_BRIGHT_WAKE_LOCK
-                | PowerManager.FULL_WAKE_LOCK
-                | PowerManager.ACQUIRE_CAUSES_WAKEUP), "TAG");
+        if (!pm.isScreenOn()) {
+            PowerManager.WakeLock wakeLock = pm.newWakeLock((PowerManager.SCREEN_BRIGHT_WAKE_LOCK
+                    | PowerManager.FULL_WAKE_LOCK
+                    | PowerManager.ACQUIRE_CAUSES_WAKEUP), "TAG");
 
-        wakeLock.acquire();
-        wakeLock.release();
+            wakeLock.acquire();
+            wakeLock.release();
+        }
+
     }
 
     private void unlockDevice() {

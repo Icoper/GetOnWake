@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Take to unlock</string>
+    <string name="app_name">Умная Разблокировка</string>
     <string name="app_status_on">Сервис активен</string>
     <string name="app_status_off">Сервис не активен</string>
     <string name="qunlock_cb">Быстрая разблокировка</string>
-    <string name="qunlock_info">При включении данной фунции ваше устройство автоматически разблокируется. Внимание, данная функция может работать не на всех устройствах, а так же в случаях если вы ипользуете пароль и т.д.  </string>
+    <string name="qunlock_info">При включении данной фунции, приложение попытается автоматически разблокировать экран блокировки. Функция может работать не на всех устройствах,и в тех случаях когда вы ипользуете пароль и т.д. </string>
     <string name="about_app">Связаться с разработчиком : gotoyougoal@gmail.com</string>
-
-    <string name="about_sensitivity">Данный параметр регулирует чувсвительность вашего устройства к пробуждениям. Рекомендуемое значение - 8. Не рекомендуется менять этот параметр т.к. возможны спонтанные пробуждения устройства.</string>
     <string name="need_restart">Что бы изменения вступили в силу, необходимо перезапустить преложение.</string>
+    <string name="menu_title">Меню</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_about">О Нас</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7209919469454946/2234244511</string>
+    <string name="settings_reqest_text">Данный параметр регулирует частоту обращений к акселерометру. Чем чаще будет происходить обращение к акселерометру, тем выше точность срабатывания, но и разряд батареи соответственно выше.</string>
+    <string name="settings_press_to_edit">нажмите для изменения : </string>
+    <string name="settings_sensitivity_text">Данный параметр влияет на угол пробуждения устройства относительно горизонта. Красная зона означает под каким углом устройство не будет пробуждаться, а зеленая - зона срабатывания.</string>
+    <string name="title_activity_settings">Настройки</string>
+
+    <string name="request_sec"> мс.</string>
+    <string name="alert_title">Выберете частоту обращения. 1 сек. = 1 000 000 мс.</string>
 </resources>
+

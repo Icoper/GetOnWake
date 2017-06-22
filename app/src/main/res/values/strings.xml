@@ -1,11 +1,20 @@
 <resources>
-    <string name="app_name">Take to unlock</string>
+    <string name="app_name">Smart Unlocking</string>
     <string name="app_status_on">Service is active</string>
     <string name="app_status_off">Service is not active</string>
     <string name="qunlock_cb">Quick Unlock</string>
-    <string name="qunlock_info">When this feature is enabled, your device will be automatically unlocked.Attention, this function can not work on all devices, and also in cases when you use a password, etc.</string>
+    <string name="qunlock_info">When this feature is enabled, the application will try to automatically unlock the lock screen. The function may not work on all devices, and in those cases when you use a password, etc.</string>
     <string name="about_app">Contact the developer : gotoyougoal@gmail.com</string>
-    <string name="about_sensitivity">This parameter adjusts the sensitivity of your device to wake-ups. The recommended value is 8. It is not recommended to change this parameter. Spontaneous awakening of the device is possible.</string>
-    <string name="need_restart">Что бы изменения вступили в силу, необходимо перезапустить преложение.</string>
+    <string name="need_restart">To change the entry into force, you must restart the proposal.</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7209919469454946/2234244511</string>
+    <string name="menu_title">Menu</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_reqest_text">This parameter adjusts the frequency of calls to the accelerometer. The more often the accelerometer is accessed, the higher the accuracy of operation, but the discharge of the battery is correspondingly higher.</string>
+    <string name="settings_sensitivity_text">This parameter affects the devices waking angle with respect to the horizon. The red zone means at what angle the device will not wake up, and the green zone indicates the trigger zone.</string>
+    <string name="settings_press_to_edit">press to edit : </string>
+    <string name="request_sec"> ms.</string>
+    <string name="alert_title">Choose the frequency of treatment. 1 sec. = 1 000 000 ms.</string>
 
 </resources>

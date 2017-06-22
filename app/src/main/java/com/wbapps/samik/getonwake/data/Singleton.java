@@ -1,4 +1,4 @@
-package com.wbapps.samik.getonwake;
+package com.wbapps.samik.getonwake.data;
 
 import android.content.Context;
 

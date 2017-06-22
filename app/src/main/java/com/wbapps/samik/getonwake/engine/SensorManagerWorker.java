@@ -7,14 +7,17 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
 
-import com.wbapps.samik.getonwake.Singleton;
+import com.wbapps.samik.getonwake.data.SharedPreferencesWorker;
 
 import static android.content.Context.SENSOR_SERVICE;
 
 
 public class SensorManagerWorker implements SensorEventListener {
     private static final String LOG_TAG = "SensorManagerWorker";
+    private static final int DEFAULT_SENSITIVITY = 200000;
 
+    private SharedPreferencesWorker sharedPreferencesWorker;
+    private int requestVolume;
     private static SensorManager sensorManager;
     private static boolean proximityState;
     private Context context;
@@ -25,6 +28,20 @@ public class SensorManagerWorker implements SensorEventListener {
     public SensorManagerWorker(Context context) {
         this.context = context;
         sensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
+        sharedPreferencesWorker = new SharedPreferencesWorker(context);
+        installSensitivity();
+    }
+
+    private void installSensitivity() {
+        if (sharedPreferencesWorker == null) {
+            sharedPreferencesWorker = new SharedPreferencesWorker(context);
+        }
+
+        requestVolume = sharedPreferencesWorker.getRequest();
+
+        if (requestVolume == 0) {
+            requestVolume = DEFAULT_SENSITIVITY;
+        }
     }
 
     public SensorManagerWorker() {
@@ -43,6 +60,7 @@ public class SensorManagerWorker implements SensorEventListener {
             proximityState = true;
         }
 
+        installSensitivity();
         regAccelSensorListener();
         regProximitySensorListener();
     }
@@ -70,12 +88,11 @@ public class SensorManagerWorker implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         Log.d(LOG_TAG, "onSensorChanged");
 
-        final ArrayAdapterCustom adapterCustom = new ArrayAdapterCustom();
-
+        final AccelerometerDataListener dataListener = new AccelerometerDataListener();
         // We register and send each sensor reading in ArrayAdapterCustom
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             Log.d(LOG_TAG, "event - accelerometer");
-            adapterCustom.addItem(
+            dataListener.updateDataArray(
                     event.values[0],
                     event.values[1],
                     event.values[2]
@@ -98,7 +115,7 @@ public class SensorManagerWorker implements SensorEventListener {
     }
 
     private void regAccelSensorListener() {
-        sensorManager.registerListener(this, sensorAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, sensorAccelerometer, requestVolume);
     }
 
     private void unregAccelSensorListener() {
@@ -113,4 +130,7 @@ public class SensorManagerWorker implements SensorEventListener {
         sensorManager.unregisterListener(this, sensorProximity);
     }
 
+    public static SensorManager getSensorManager() {
+        return sensorManager;
+    }
 }
