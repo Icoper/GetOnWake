@@ -25,10 +25,13 @@ public class AccelerometerDataListener {
 
     }
 
+
     /**
-     * Этот метод отвечает за обработку данных акселерометраа и решает,
-     * будить устройство или нет
+     *  This method is responsible for processing the accelerometer data and decides,
+     *  Wake the device or not
      */
+
+
     public void updateDataArray(float valueX, float valueY, float valueZ) {
         if (valueY >= y_data && valueZ <= z_data) {
             PowerManagerCustom powerManagerCustom = new PowerManagerCustom(Singleton.getInstance().getMainContext());

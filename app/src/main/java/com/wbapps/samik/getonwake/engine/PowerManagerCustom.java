@@ -24,7 +24,7 @@ public class PowerManagerCustom {
     }
 
     public void wakeUp() {
-
+        // Before awakening, check the condition of the proximity sensor
         if (new SensorManagerWorker().checkProximitySensor()) {
             screenOn();
             if (qUnlock) {
@@ -48,6 +48,7 @@ public class PowerManagerCustom {
 
     }
 
+    // When calling this method, we go around the lock screen
     private void unlockDevice() {
         KeyguardManager keyguardManager = (KeyguardManager) appContext.getSystemService(Context.KEYGUARD_SERVICE);
         KeyguardManager.KeyguardLock keyguardLock = keyguardManager.newKeyguardLock("TAG");
