@@ -56,7 +56,7 @@ public class SharedPreferencesWorker {
             return data;
         }
 
-        return UserDataExample.SENSITIVITY_3;
+        return UserDataExample.SENSITIVITY_1;
     }
 
     public void saveRequest(int volume) {
@@ -75,7 +75,7 @@ public class SharedPreferencesWorker {
             return sharedPreferences.getInt(APP_PREFERENCES_REQUEST_FREQUENCY, 0);
         }
 
-        return UserDataExample.ACCELERATION_REQUEST_0_6;
+        return UserDataExample.ACCELERATION_REQUEST_0_2;
     }
 
     public void saveQunlockState(boolean state) {
@@ -94,6 +94,6 @@ public class SharedPreferencesWorker {
             return sharedPreferences.getBoolean(APP_PREFERENCES_QUNLOCK, false);
         }
 
-        return true;
+        return false;
     }
 }
